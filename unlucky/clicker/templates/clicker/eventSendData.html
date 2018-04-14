@@ -1,0 +1,11 @@
+<h1>Cigarrete clicker</h1>
+<ul>
+<li>{{ object_list}}</li>
+</ul>
+
+<ul>
+        {% for event in object_list %}
+            <li>{{ event.event_title }}</li>
+        {% endfor %}
+</ul>
+
