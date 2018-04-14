@@ -17,8 +17,17 @@
       <div class="left">
         <div class="image" (click)="increaseMoney()">Tu kliknij</div>
         <div class="money">{{money}}</div>
+        <div class="randEvent" (click)="randomEvent()">get random event</div>
       </div>
-      <div class="right"></div>
+      <div class="right">
+        <div class="activity">
+          <div class="img">
+
+            <span class="price">2$</span>
+          </div>
+          <span class="progressbar"></span>
+        </div>
+      </div>
   </div>
 
 
@@ -29,18 +38,17 @@
     </div>
   </div>
 </div>
-<!--<div class="event">-->
-  <!--<p class="title">{{event.event_title}}</p>-->
-  <!--<div class="image" [ngStyle]="{'background-image':'url(http://localhost/assets/img/produkty/'+even+')'}"></div>-->
-  <!--<span class="description">{{event.event_description}}</span>-->
-  <!--<div class="option">-->
-    <!--<span class="button" (click)="close();">1.</span>-->
-    <!--<span class="desc" (click)="close();">{{event.event_choice_1}}</span>-->
-  <!--</div>-->
-  <!--<div class="option">-->
-    <!--<span class="button" (click)="close();">2.</span>-->
-    <!--<span class="desc" (click)="close();">{{event.event_choice_2}}</span>-->
-  <!--</div>-->
-  <!--<div class="close" (click)="close();"></div>-->
-<!--</div>-->
+<div class="event" *ngIf="randEvent!==undefined">
+  <p class="title">{{randEvent.event_title}}</p>
+  <div class="image" [ngStyle]="{'background-image':''}"></div>
+  <span class="description">{{randEvent.event_description}}</span>
+  <div class="option">
+    <span class="button" (click)="close(1);">1.</span>
+    <span class="desc" (click)="close(1);">{{randEvent.event_choice_1}}</span>
+  </div>
+  <div class="option">
+    <span class="button" (click)="close(2);">2.</span>
+    <span class="desc" (click)="close(2);">{{randEvent.event_choice_2}}</span>
+  </div>
+</div>
 
