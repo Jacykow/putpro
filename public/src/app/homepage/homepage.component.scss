@@ -1,0 +1,30 @@
+.homepageContainer {
+  min-height:100vh;
+  //position:absolute;
+  .header {
+    padding:20px 15px;
+    background-color:grey;
+    .headerContent {
+      display:flex;
+      flex-wrap:wrap;
+    }
+    .left {
+      float:left;
+    }
+    .right {
+      float:right;
+    }
+  }
+}
+.statusBottomContainer {
+  position:absolute;
+  bottom:0px;
+  width:100%;
+  padding:20px 15px;
+  background-color:grey;
+  .progress {
+    .progress-bar {
+      background-color:rgb(100, 155, 0);
+    }
+  }
+}
