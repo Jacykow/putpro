@@ -1,0 +1,5 @@
+C:\Users\jacgu\source\repos\WebTest2\WebTest2
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=WebTest2
+--content-root=C:\Users\jacgu\source\repos\WebTest2\WebTest2
+--file=
