@@ -35,7 +35,7 @@
   background-color:red;
   width:500px;
   height:300px;
-  display:none;
+  //display:none;
   .image {
     width:100px;
     height:100px;
@@ -51,15 +51,36 @@
       min-width:400px;
     }
     .right {
-      background-color:rose;
+      background-color:blue;
+      width:60%;
+      .activity {
+        margin:10px;
+        .img {
+          background-color:brown;
+          width:50px;
+          height:50px;
+          position:relative;
+        }
+        .price {
+          position:absolute;
+          bottom:0;
+        }
+        .progressbar {
+          width:50px;
+          height:8px;
+          background-color:gold;
+          display:block;
+        }
+      }
     }
 
 
 }
 @media only screen and (max-width:1016px) {
   .content {
-    flex-wrap:nowrap;
+    display:block;
     .left, .right {
+      height:100px;
       width:100%;
       display:block;
       clear:both;
