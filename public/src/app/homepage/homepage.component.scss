@@ -33,8 +33,21 @@
   position: absolute;
   z-index:999;
   background-color:red;
+  width:500px;
+  height:300px;
   .image {
     width:100px;
     height:100px;
   }
+}
+.content {
+  .row {
+    .left {
+
+    }
+    .right {
+
+    }
+  }
+
 }

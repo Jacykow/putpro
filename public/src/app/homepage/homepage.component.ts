@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UnluckyService} from "../unlucky.service";
+import {Activity} from "../activity";
 import {Event} from '../event';
 import * as $ from 'jquery';
 
@@ -9,22 +10,39 @@ import * as $ from 'jquery';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  public send: number = 45;
-  public money: number = 0;
+  public send = 45;
+  private money = 0;
+  private stress = 20;
+  private jobPosition = 0;
+
+  private friends = 0;
+  private cigarettes = 0;
+  private alcohol = 0;
+  private drugs = 0;
+
+
+  // private event: Event = {event_title: "dfd", event_description:"dff",event_image:"dsfdf", event_choice_1: "sdsd", event_choice_2: "sdsd"};
+  private activities: Array<Activity>;
   private event: Event;
   public timeTillLastEvent = 0;
   constructor(private _service: UnluckyService) { }
 
   ngOnInit() {
-    this._service.sendData(this.send)
-      .subscribe(result => {
-        console.log(result);
-      }, error => {console.log(error)});
+    // this._service.sendData(this.send)
+    //   .subscribe(result => {
+    //     console.log(result);
+    //   }, error => {console.log(error)});
+    this.getActivities();
     this.initBars();
     var interval = setInterval(()=>{
-     // this.animateApp();
+     //this.animateApp();
     },25);
   }
+
+  getActivities() {
+
+  }
+
   animateApp() {
     this.changeProgressBar('.stress-bar', '.progress');
     this.timeTillLastEvent++;
@@ -55,19 +73,21 @@ export class HomepageComponent implements OnInit {
 
 
   getEvent() {
-    this._service.getEvent()
-      .subscribe(result => {
-        if(this.event !== result[0]) {
-          this.event = result[0];
-          this.showEvent();
-        }
-      }, error => {console.log(error)});
-  }
+    // this._service.getEvent()
+    //   .subscribe(result => {
+    //     if(this.event !== result[0]) {
+    //       this.event = result[0];
+    //       this.showEvent();
+    //     }
+    //   }, error => {console.log(error)});
+    this.showEvent();
+}
   showEvent() {
+    console.log(this.event);
 
   }
   close() {
-
+    $('.event').css('display', 'none');
   }
 
   increaseMoney() {

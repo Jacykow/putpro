@@ -14,6 +14,16 @@
     <div class="image" (click)="increaseMoney()">Tu kliknij</div>
     <div class="money">{{money}}</div>
   </div>
+
+
+  <div class="content">
+    <div class="row">
+      <div class="col-4 left"></div>
+      <div class="col-8 right"></div>
+    </div>
+  </div>
+
+
   <div class="statusBottomContainer">
     <div class="progress">
       <div class="progress-bar progress-bar-striped stress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
@@ -22,17 +32,17 @@
   </div>
 </div>
 <div class="event">
-  <!--<p class="title">{{event.event_title}}</p>-->
-  <!--<div class="image" [ngStyle]="{'background-image':'url(http://localhost/assets/img/produkty/'+even+')'}"></div>-->
-  <!--<span class="description">{{event.event_description}}</span>-->
-  <!--<div class="option">-->
-    <!--<span class="button">1.</span>-->
-    <!--<span class="desc">{{event.event_choice_1}}</span>-->
-  <!--</div>-->
-  <!--<div class="option">-->
-    <!--<span class="button">2.</span>-->
-    <!--<span class="desc">{{event.event_choice_2}}</span>-->
-  <!--</div>-->
-  <!--<div class="close" (click)="close();"></div>-->
+  <p class="title">{{event.event_title}}</p>
+  <div class="image" [ngStyle]="{'background-image':'url(http://localhost/assets/img/produkty/'+even+')'}"></div>
+  <span class="description">{{event.event_description}}</span>
+  <div class="option">
+    <span class="button" (click)="close();">1.</span>
+    <span class="desc" (click)="close();">{{event.event_choice_1}}</span>
+  </div>
+  <div class="option">
+    <span class="button" (click)="close();">2.</span>
+    <span class="desc" (click)="close();">{{event.event_choice_2}}</span>
+  </div>
+  <div class="close" (click)="close();"></div>
 </div>
 
