@@ -4,7 +4,7 @@ from django.db import models
 
 from django.utils import timezone
 
-class Event:
+class Event(models.Model):
     id = models.AutoField(primary_key=True)
 
     event_title = models.CharField("event_title", max_length=60)
@@ -14,3 +14,6 @@ class Event:
     event_choice_1 = models.CharField("event_choice_1", max_length=500)
     event_choice_2 = models.CharField("event_choice_2", max_length=500)
     #string url, , , 2 opcje tekst i efekt
+
+    def __str__(self):
+        return self.event_title
