@@ -22,9 +22,8 @@ export class HomepageComponent implements OnInit {
 
 
   // private event: Event = {event_title: "dfd", event_description:"dff",event_image:"dsfdf", event_choice_1: "sdsd", event_choice_2: "sdsd"};
-  private activities: any;
-  private events: any;
-  private randEvent: Event;
+  private activities: Array<Activity>;
+  private event: Event;
   public timeTillLastEvent = 0;
   constructor(private _service: UnluckyService) { }
 
@@ -34,36 +33,31 @@ export class HomepageComponent implements OnInit {
     //     console.log(result);
     //   }, error => {console.log(error)});
 
-    // this._service.getEvent()
-    //   .subscribe(result => {
-    //     console.log(result);
-    //   }, error => {console.log(error)});
-    this.getEvents();
+    this._service.getEvent()
+      .subscribe(result => {
+        console.log(result);
+      }, error => {console.log(error)});
     this.getActivities();
     this.initBars();
     var interval = setInterval(()=>{
-      this.animateApp();
+     //this.animateApp();
     },25);
   }
 
   getActivities() {
-      this._service.getActivities()
-      .subscribe(result => {
-        this.activities = result;
-      }, error => {console.log(error)});
 
   }
 
   animateApp() {
     this.changeProgressBar('.stress-bar', '.progress');
-    // this.timeTillLastEvent++;
-    // if (this.timeTillLastEvent >= 100) {
-    //   //this.getEvent();
-    //   this.timeTillLastEvent = 0;
-    // }
+    this.timeTillLastEvent++;
+    if (this.timeTillLastEvent >= 100) {
+      this.getEvent();
+      this.timeTillLastEvent = 0;
+    }
   }
   initBars() {
-    $('.stress-bar').width(this.stress + '%');
+    $('.stress-bar').width("20%");
     // var red = Math.floor($(name).width()/$('.progress').width()*255);
     // $('.progress-bar').css('background-color', "rgb("+red.toString()+","+(255-red).toString()+",0)");
   }
@@ -71,7 +65,7 @@ export class HomepageComponent implements OnInit {
   changeProgressBar(name: string, compare: string) {
    // document.getElementsByClassName("progress-bar").style.width = "40%";
     if ($(name).width() < $(compare).width()) {
-       $(name).width(this.stress + '%');
+      // $(name).width($(name).width() + value);
       if (name === '.stress-bar') {
         // console.log("rgb("+$(name).width()+", 0, 0)");
         var red = Math.floor($(name).width()/$('.progress').width()*255);
@@ -83,36 +77,27 @@ export class HomepageComponent implements OnInit {
 
 
 
-  getEvents() {
-    this._service.getEvent()
-      .subscribe(result => {
-        this.events = result;
-      }, error => {console.log(error)});
+  getEvent() {
+    // this._service.getEvent()
+    //   .subscribe(result => {
+    //     if(this.event !== result[0]) {
+    //       this.event = result[0];
+    //       this.showEvent();
+    //     }
+    //   }, error => {console.log(error)});
+    this.showEvent();
 }
-  randomEvent() {
-    this.randEvent = this.events[Math.floor(Math.random()*7)];
-    $('.event').css('display','block');
-    //console.log(this.randEvent);
+  showEvent() {
+    console.log(this.event);
+
   }
-  close($e) {
+  close() {
     $('.event').css('display', 'none');
-    if($e===1) {
-      this.stress += this.randEvent.stress1;
-      this.friends += this.randEvent.friends1;
-      this.cigarettes += this.randEvent.cigaretes1;
-      this.alcohol += this.randEvent.alcochol1;
-      this.drugs += this.randEvent.drugs1;
-    } else if($e===2) {
-      this.stress += this.randEvent.stress2;
-      this.friends += this.randEvent.friends2;
-      this.cigarettes += this.randEvent.cigaretes2;
-      this.alcohol += this.randEvent.alcochol2;
-      this.drugs += this.randEvent.drugs2;
-    }
   }
 
   increaseMoney() {
     this.money++;
+    $('.progress-bar').width($('.progress-bar').width() + 50);
   }
 
 
