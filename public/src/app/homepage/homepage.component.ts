@@ -14,8 +14,9 @@ export class HomepageComponent implements OnInit {
   private money = 0;
   private stress = 20;
   private jobPosition = 0;
+  private score = 0;
 
-  private friends = 0;
+  private friends = 10;
   private cigarettes = 0;
   private alcohol = 0;
   private drugs = 0;
