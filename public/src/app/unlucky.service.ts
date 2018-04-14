@@ -9,6 +9,6 @@ export class UnluckyService {
     return this._http.get('http://localhost:8000/question/?format=json');
   }
   sendData(data: number) {
-    return this._http.post('http://localhost:8000/sendData', data);
+    return this._http.post('http://localhost:8000/unlucky/sendData', data);
   }
 }
