@@ -33,10 +33,12 @@ class EventList(APIView):
     def post(self):
         pass
 
-
 def myawesomeview(request):
     print (request.POST)
     print (request.body)
+
+def hello(request):
+    return HttpResponse("Hello world")
 
 """
 def rest(request):
