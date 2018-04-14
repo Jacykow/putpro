@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from rest_framework import serializers
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,6 +11,7 @@ from rest_framework import status
 from . models import Event
 from . serializers import EventSerializer
 
+import json
 
 """
 class EventList(GenericAPIView):
@@ -30,3 +32,11 @@ class EventList(APIView):
 
     def post(self):
         pass
+
+
+def rest(request):
+
+    artistname = request.POST.get("artiste") # should get 'da vinci'
+    response_data = {}
+    response_data = serializers.serialize("json", Art.objects.filter(artist__contains=artistname))
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
