@@ -11,7 +11,7 @@ import * as $ from 'jquery';
 export class HomepageComponent implements OnInit {
   public send: number = 45;
   public money: number = 0;
-  private event: Event = {};
+  private event: Event;
   public timeTillLastEvent = 0;
   constructor(private _service: UnluckyService) { }
 
@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
       }, error => {console.log(error)});
     this.initBars();
     var interval = setInterval(()=>{
-      this.animateApp();
+     // this.animateApp();
     },25);
   }
   animateApp() {
@@ -52,9 +52,7 @@ export class HomepageComponent implements OnInit {
 
   }
 
-  showEvent() {
 
-  }
 
   getEvent() {
     this._service.getEvent()
@@ -65,6 +63,13 @@ export class HomepageComponent implements OnInit {
         }
       }, error => {console.log(error)});
   }
+  showEvent() {
+
+  }
+  close() {
+
+  }
+
   increaseMoney() {
     this.money++;
     $('.progress-bar').width($('.progress-bar').width() + 50);
