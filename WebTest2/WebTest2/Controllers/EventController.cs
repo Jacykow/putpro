@@ -8,7 +8,7 @@ using WebTest2.Models;
 namespace WebTest2.Controllers
 {
     [Route("api/[controller]")]
-    public class KappaController : Controller
+    public class EventController : Controller
     {
         public IActionResult Index()
         {
@@ -16,10 +16,15 @@ namespace WebTest2.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Kappa> GetAll(){
+        public IEnumerable<Event> GetAll()
+        {
+            return new Event[] { new Event() { Title = "Test w chuuuj" } };
+        }
 
-            return new Kappa[] { new Kappa() { Name = "benis prosto z imperium i " + (new Random().Next
-            () % 10)} };
+        [HttpGet("{id}")]
+        public Event Get(int id)
+        {
+            return new Event() { Title = "Test na numerku: " + id };
         }
     }
 }
