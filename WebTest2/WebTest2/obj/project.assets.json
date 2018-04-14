@@ -13124,11 +13124,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacgu\\source\\repos\\WebTest2\\WebTest2\\WebTest2.csproj",
+      "projectUniqueName": "C:\\Users\\jacgu\\Documents\\GitHub\\putpro\\WebTest2\\WebTest2\\WebTest2.csproj",
       "projectName": "WebTest2",
-      "projectPath": "C:\\Users\\jacgu\\source\\repos\\WebTest2\\WebTest2\\WebTest2.csproj",
+      "projectPath": "C:\\Users\\jacgu\\Documents\\GitHub\\putpro\\WebTest2\\WebTest2\\WebTest2.csproj",
       "packagesPath": "C:\\Users\\jacgu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacgu\\source\\repos\\WebTest2\\WebTest2\\obj\\",
+      "outputPath": "C:\\Users\\jacgu\\Documents\\GitHub\\putpro\\WebTest2\\WebTest2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

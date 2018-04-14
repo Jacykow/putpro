@@ -18,7 +18,7 @@ namespace WebTest2.Controllers
         [HttpGet]
         public IEnumerable<Kappa> GetAll(){
 
-            return new Kappa[] { new Kappa() { Name = "benis" }};
+            return new Kappa[] { new Kappa() { Name = "benis prosto z imperium" }};
         }
     }
 }
