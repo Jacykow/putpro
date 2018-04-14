@@ -20,12 +20,16 @@
         <div class="randEvent" (click)="randomEvent()">get random event</div>
       </div>
       <div class="right">
-        <div class="activity">
-          <div class="img">
-
+        <h3>Jesteś na początku swojej drogi.</h3>
+        <div *ngFor="let activit of activities" class="activity">
+          <!--<div class="img" [ngStyle]="{'background-image':'url('+ activit.obrazek_image+')'}">-->
+            <div class="img" [ngStyle]="{'background-image':'url(https://i.imgur.com/XAF0OsJ.png)'}">
             <span class="price">2$</span>
           </div>
-          <span class="progressbar"></span>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+             </div>
+          </div>
         </div>
       </div>
   </div>
