@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
-
+from django.views import View
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -23,6 +23,17 @@ class EventList(GenericAPIView):
         return Response(serializer.data)
 
 """
+
+class SomeClass(View):
+    def get(self, request):
+        return HttpResponse("Hello")
+    def post(self, request):
+        print (request.post)
+        print (request.body)
+        print(json.loads(request.body))
+        return HttpResponse("Done")
+
+
 class EventList(APIView):
 
     def get(self, request):
