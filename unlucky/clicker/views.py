@@ -34,9 +34,15 @@ class EventList(APIView):
         pass
 
 
+def myawesomeview(request):
+    print (request.POST)
+    print (request.body)
+
+"""
 def rest(request):
 
     artistname = request.POST.get("artiste") # should get 'da vinci'
     response_data = {}
     response_data = serializers.serialize("json", Art.objects.filter(artist__contains=artistname))
     return HttpResponse(json.dumps(response_data), content_type="application/json")
+"""
