@@ -14,4 +14,7 @@ export class UnluckyService {
   getEvent() {
     return this._http.get('http://localhost:8000/eventSendData/?format=json');
   }
+  getActivities() {
+    return this._http.get('http://localhost:8000/eventSendDataObrazki/?format=json');
+  }
 }
