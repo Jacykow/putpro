@@ -26,6 +26,7 @@ from clicker import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('eventSendData/', views.EventList.as_view()),
+    path('eventSendDataObrazki/', views.ObrazkiList.as_view()),
     url(r'^myawesomeview/$', myawesomeview),
     url(r'^hello/$', hello),
     url('kappa/', views.SomeClass),

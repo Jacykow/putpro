@@ -9,8 +9,9 @@ from rest_framework import status
 #from rest_framework.generics import GenericAPIView
 
 from . models import Event
+from . models import Obrazki
 from . serializers import EventSerializer
-
+from . serializers import ObrazekSerializer
 import json
 
 """
@@ -39,6 +40,16 @@ class EventList(APIView):
     def get(self, request):
         event = Event.objects.all()
         serializer = EventSerializer(event, many = True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
+
+class ObrazkiList(APIView):
+
+    def get(self, request):
+        obrazki = Obrazki.objects.all()
+        serializer = ObrazekSerializer(obrazki, many = True)
         return Response(serializer.data)
 
     def post(self):
