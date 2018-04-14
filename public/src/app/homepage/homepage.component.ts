@@ -38,8 +38,8 @@ export class HomepageComponent implements OnInit {
     //   .subscribe(result => {
     //     console.log(result);
     //   }, error => {console.log(error)});
-    this.getEvents();
     this.getActivities();
+    this.getEvents();
     this.initBars();
     var interval = setInterval(()=>{
       this.animateApp();

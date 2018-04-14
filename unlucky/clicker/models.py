@@ -30,7 +30,6 @@ class Obrazki(models.Model):
     obrazek_nazwa = models.CharField("obrazek_nazwa", max_length=60)
     obrazek_image = models.CharField("event_image_url", max_length=5000)
 
-    cena3 = models.IntegerField("cena3", default=0)
     stress3 = models.IntegerField("stress3", default=0)
     friends3 = models.IntegerField("friends3", default=0)
     cigaretes3 = models.IntegerField("cigaretes3", default=0)
