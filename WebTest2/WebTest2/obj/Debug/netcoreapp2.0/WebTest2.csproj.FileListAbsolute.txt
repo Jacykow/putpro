@@ -9,3 +9,14 @@ C:\Users\jacgu\source\repos\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.p
 C:\Users\jacgu\source\repos\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.csprojResolveAssemblyReference.cache
 C:\Users\jacgu\source\repos\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.dll
 C:\Users\jacgu\source\repos\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.pdb
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.deps.json
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.runtimeconfig.json
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.runtimeconfig.dev.json
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.dll
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\bin\Debug\netcoreapp2.0\WebTest2.pdb
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.csprojResolveAssemblyReference.cache
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.csproj.CoreCompileInputs.cache
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.AssemblyInfoInputs.cache
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.AssemblyInfo.cs
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.dll
+C:\Users\jacgu\Documents\GitHub\putpro\WebTest2\WebTest2\obj\Debug\netcoreapp2.0\WebTest2.pdb
