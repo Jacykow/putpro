@@ -1,3 +1,23 @@
-<p>
-  homepage works!
-</p>
+<div class="homepageContainer">
+  <div class="header">
+    <div class="headerContent left">
+      <div class="image"> zdjecie </div>
+      <div class="number">15</div>
+    </div>
+    <div class="headerContent right">
+      <div class="number">15</div>
+      <div class="image"> prawo </div>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <div class="workClicker">
+    <div class="image" (click)="increaseMoney()">Tu kliknij</div>
+    <div class="money">{{money}}</div>
+  </div>
+  <div class="statusBottomContainer">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped stress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      </div>
+    </div>
+  </div>
+</div>
