@@ -35,19 +35,34 @@
   background-color:red;
   width:500px;
   height:300px;
+  display:none;
   .image {
     width:100px;
     height:100px;
   }
 }
 .content {
-  .row {
+  height:calc(100vh - 100px);
+  background-color:green;
+  display:flex;
     .left {
-
+      background-color:burlywood;
+      width:40%;
+      min-width:400px;
     }
     .right {
+      background-color:rose;
+    }
 
+
+}
+@media only screen and (max-width:1016px) {
+  .content {
+    flex-wrap:nowrap;
+    .left, .right {
+      width:100%;
+      display:block;
+      clear:both;
     }
   }
-
 }

@@ -1,8 +1,13 @@
 export class Activity {
   constructor(
-    id: number = 1,
-    obrazek_nazwa: string = '',
-    obrazek_image: string = ''
+    public id: number = 1,
+    public obrazek_nazwa: string = '',
+    public obrazek_image: string = '',
+    public stress3: number = 0,
+    public friends3: number = 0,
+    public cigarettes3: number = 0,
+    public alcohol3: number = 0,
+    public drugs3: number = 0
   ) {
 
   }
