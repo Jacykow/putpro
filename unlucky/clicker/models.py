@@ -13,6 +13,11 @@ class Event(models.Model):
 
     event_choice_1 = models.CharField("event_choice_1", max_length=500)
     event_choice_2 = models.CharField("event_choice_2", max_length=500)
+    stress = models.IntegerField("stress",default=0)
+    friends = models.IntegerField("friends",default=0)
+    cigaretes = models.IntegerField("cigaretes",default=0)
+    alcochol = models.IntegerField("alcochol",default=0)
+    drugs = models.IntegerField("drugs",default=0)
     #string url, , , 2 opcje tekst i efekt
 
     def __str__(self):
