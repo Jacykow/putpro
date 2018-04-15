@@ -11,13 +11,13 @@ import * as $ from 'jquery';
 })
 export class HomepageComponent implements OnInit {
   private animationCross = 0;
-  private money = 0;
+  public money = 0;
   private stress = 20;
   private salary = 1;
-  private score = 0;
+  public score = 0;
   private avanceChance = 0;
 
-  private friends = 10;
+  public friends = 10;
   private cigarettes = 0;
   private alcohol = 0;
   private drugs = 0;
@@ -27,17 +27,17 @@ export class HomepageComponent implements OnInit {
     "stress":this.stress,
     "salary": this.salary,
     "score":this.score,
-    "friends":this.friend,
+    "friends":this.friends,
     "cigarettes":this.cigarettes,
     "alcohol":this.alcohol,
     "drugs":this.drugs
   }
   // private event: Event = {event_title: "dfd", event_description:"dff",event_image:"dsfdf", event_choice_1: "sdsd", event_choice_2: "sdsd"};
-  private activities: any;
-  private events: any;
-  private randEvent: Event;
+  public activities: any;
+  private event: any;
+  public randEvent: Event;
   private salaryTime = 0;
-  public timeTillLastEvent = 0;
+  public timeFromLastEvent = 0;
   constructor(private _service: UnluckyService) { }
 
   ngOnInit() {
@@ -51,11 +51,11 @@ export class HomepageComponent implements OnInit {
     //     console.log(result);
     //   }, error => {console.log(error)});
 
-    this.getActivities();
-    this.getEvents();
+    //this.getActivities();
+    // this.getRandomEvent();
     this.initBars();
     var interval = setInterval(()=>{
-      this.animateApp();
+     this.animateApp();
     },25);
   }
 
@@ -74,7 +74,7 @@ export class HomepageComponent implements OnInit {
     if(this.stress >= 100) this.stress = 100;
     this.updateDict();
     this.animationCrossFunc();
-
+    this.checkEvent();
     this.addSalary();
     // this.timeTillLastEvent++;
     // if (this.timeTillLastEvent >= 100) {
@@ -82,9 +82,27 @@ export class HomepageComponent implements OnInit {
     //   this.timeTillLastEvent = 0;
     // }
   }
+  checkEvent() {
+    if($('.salary').i) {
+      this.timeFromLastEvent++;
+    }
+    if(this.timeFromLastEvent >= 50) {
+      // var ev = this.getRandomEvent();
+      // console.log(ev);
+      // if(this.timeFromLastEvent >= 100) {
+      //   this.timeFromLastEvent = 0;
+      //   if(ev !== this.event) {
+      //     console.log(ev);
+      //   }
+      // }
+      this.getRandomEvent();
+      this.timeFromLastEvent = 0;
+    }
+
+  }
   addSalary() {
     this.salaryTime++;
-    if(this.salaryTime >= 50) {
+    if(this.salaryTime >= 120) {
       this.money += this.salary;
       this.salaryTime = 0;
     }
@@ -143,17 +161,19 @@ export class HomepageComponent implements OnInit {
 
   }
 
-  getEvents() {
-    this._service.getEvent()
+  getRandomEvent() {
+    this._service.getRandomEvent()
       .subscribe(result => {
-        this.events = result;
+        this.event = result;
+        // console.log(this.event);
+        $('.event').css('display', 'block');
       }, error => {console.log(error)});
 }
-  randomEvent() {
-    this.randEvent = this.events[Math.floor(Math.random()*7)];
-    $('.event').css('display','block');
-    //console.log(this.randEvent);
-  }
+  // randomEvent() {
+  //   this.randEvent = this.events[Math.floor(Math.random()*7)];
+  //   $('.event').css('display','block');
+  //   //console.log(this.randEvent);
+  // }
   close($e) {
     $('.event').css('display', 'none');
     if($e===1) {

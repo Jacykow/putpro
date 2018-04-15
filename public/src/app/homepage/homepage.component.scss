@@ -70,7 +70,7 @@
   background-color:red;
   width:500px;
   height:300px;
-  //display:none;
+  display:none;
   .image {
     width:100px;
     height:100px;
@@ -213,10 +213,16 @@
 
 }
 @media only screen and (max-width:1016px) {
+  html, body {
+    overflow:visible !important;
+    height:auto !important;
+  }
   .content {
     display:block;
+    margin: 0;
+    height:auto !important;
     .left, .right {
-      height:100px;
+      margin: 0;
       width:100%;
       display:block;
       clear:both;
