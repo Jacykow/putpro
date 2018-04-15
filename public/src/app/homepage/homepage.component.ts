@@ -56,7 +56,7 @@ export class HomepageComponent implements OnInit {
   }
 
   animateApp() {
-    this.changeProgressBar('.stress-bar', '.progress');
+    this.changeProgressBar('.stress-bar', '.progressBottom');
     // this.timeTillLastEvent++;
     // if (this.timeTillLastEvent >= 100) {
     //   //this.getEvent();
@@ -71,12 +71,14 @@ export class HomepageComponent implements OnInit {
 
   changeProgressBar(name: string, compare: string) {
    // document.getElementsByClassName("progress-bar").style.width = "40%";
+    //console.log($('.stress-bar').width(), $('.progressBottom').width());
     if ($(name).width() < $(compare).width()) {
        $(name).width(this.stress + '%');
+       console.log($(name).width());
       if (name === '.stress-bar') {
         // console.log("rgb("+$(name).width()+", 0, 0)");
-        var red = Math.floor($(name).width()/$('.progress').width()*255);
-        $('.progress-bar').css('background-color', "rgb("+red.toString()+","+(255-red).toString()+",0)");
+        var red = Math.floor($(name).width()/$('.progressBottom').width()*255);
+        $(name).css('background-color', "rgb("+red.toString()+","+(255-red).toString()+",0)");
       }
     }
 
@@ -114,7 +116,20 @@ export class HomepageComponent implements OnInit {
 
   increaseMoney() {
     this.money++;
+    this.stress++;
+    //console.log(this.stress);
   }
+  touchActivity($e) {
 
+    if ($e.price3 <= this.money) {
+      this.money -= $e.price3;
+      this.stress += $e.stress3;
+      this.friends += $e.friends3;
+      this.cigarettes += $e.cigaretes3;
+      this.alcohol += $e.alcochol3;
+      this.drugs += $e.drugs3;
+
+    }
+  }
 
 }

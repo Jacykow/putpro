@@ -5,7 +5,8 @@
   //position:absolute;
   .header {
     padding:20px 15px;
-    background-color:grey;
+    background-color:#322a3d;
+    color: #e2e2e2;
     .headerContent {
       display: flex;
       flex-wrap: wrap;
@@ -31,7 +32,9 @@
     .right {
       float:right;
       .image {
-        background-image: url('../../../../img/people.png');
+        background-size:95%;
+        background-repeat:no-repeat;
+        background-image: url('https://files.slack.com/files-pri/TA6MXEYHH-FA6UK9AKU/star-35289_960_720.png');
       }
     }
   }
@@ -41,7 +44,12 @@
   bottom:0px;
   width:100%;
   padding:20px 15px;
-  background-color:grey;
+  background-color:#4b405b;
+  span {
+
+    font-family:"Roboto Slab", Serif;
+    color:#e2e2e2;
+  }
   .progress {
     .progress-bar {
       background-color:rgb(200, 55, 0);
@@ -61,15 +69,67 @@
     height:100px;
   }
 }
+
 .content {
   height:calc(100vh - 100px);
   background-color:green;
   display:flex;
-    .left {
-      background-color:burlywood;
-      width:40%;
-      min-width:400px;
+  .left {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN
+   2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHR
+   kIj4KPHN2ZyB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9Ii0yNTYgLTI1NiA1MTIgNTEyIgogIHhtbG5zPSJodHRwOi8vd3d3Lnc
+   zLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiAKICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+Cjx0aXRsZT5VbnR
+   pdGxlZDwvdGl0bGU+CjxkZWZzPgogIDxnIGlkPSJidXJzdCI+CiAgICA8ZyBpZD0icXVhZCI+CiAgICAgIDxwYXRoIGlkPSJyYXkiIGQ9Ik0wLDAgLTY
+   5LC01MDAgNjksLTUwMCB6IiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNyYXkiIHRyYW5zZm9ybT0icm90YXRlKDMwKSIvPgogICAgICA8dXNlIHh
+   saW5rOmhyZWY9IiNyYXkiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNyYXkiIHRyYW5zZm9ybT0icm90YXR
+   lKDkwKSIvPgogICAgPC9nPgogICAgPHVzZSB4bGluazpocmVmPSIjcXVhZCIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwKSIvPgogICAgPHVzZSB4bGluazp
+   ocmVmPSIjcXVhZCIgdHJhbnNmb3JtPSJyb3RhdGUoMjQwKSIvPgogIDwvZz4KICA8cmFkaWFsR3JhZGllbnQgaWQ9ImdyYWQiIGN4PSI1MCUiIGN5PSI
+   1MCUiIHI9IjUwJSIgZng9IjUwJSIgZnk9IjUwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJ3aGl0ZSIgc3RvcC1vcGFjaXR5PSI
+   wLjY1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImJsYWNrIiBzdG9wLW9wYWNpdHk9IjAuNjUiLz4KICA8L3JhZGlhbEdyYWR
+   pZW50Pgo8L2RlZnM+CjxnPgogIDx1c2UgeGxpbms6aHJlZj0iI2J1cnN0IiBmaWxsPSJsaWdodHNsYXRlYmx1ZSIvPgogIDx1c2UgeGxpbms6aHJlZj0
+   iI2J1cnN0IiBmaWxsPSJkYXJrc2xhdGVibHVlIiB0cmFuc2Zvcm09InJvdGF0ZSgxNSkiLz4KICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVUeXB
+   lPSJ4bWwiIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIgogICAgZnJvbT0iMCAwIDAiIHRvPSIzMCAwIDAiIGR1cj0iMnMiIHJ
+   lcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgo8L2c+CjxjaXJjbGUgcj0iMzYwcHgiIGZpbGw9InVybCgjZ3JhZCkiIC8+Cjwvc3ZnPgo=");
+    background-size: cover;
+    width:40%;
+    min-width:438px;
+    .money {
+      font-family: "Roboto Slab",serif;
+      font-size:18px;
+      font-weight:bold;
+      color:white;
+      width:100%;
+      text-align:center;
+      margin-top:5px;
     }
+    .image {
+      display: block;
+      margin: auto;
+      margin-top: 20%;
+
+      background-image: url("https://i.imgur.com/S7DeGD6.png");
+      width: 410px;
+      height: 338px;
+      background-size:cover;
+      background-position: center;
+    }
+
+    .image:hover{
+      background-image: url("https://i.imgur.com/2o92jRa.png");
+      width: 415px;
+      height: 342px;
+      background-size:cover;
+      background-position: center;
+    }
+
+    .image:active{
+      background-image: url("https://i.imgur.com/5BBYfgI.png");
+      width: 405px;
+      height: 333px;
+      background-size:cover;
+      background-position: center;
+    }
+  }
     .right {
       background-color:#f5f5f5;
       width:60%;
