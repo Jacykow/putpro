@@ -10,10 +10,10 @@ import * as $ from 'jquery';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  public send = 45;
+  private animationCross = 0;
   private money = 0;
   private stress = 20;
-  private salary = 0;
+  private salary = 1;
   private score = 0;
   private avanceChance = 0;
 
@@ -36,6 +36,7 @@ export class HomepageComponent implements OnInit {
   private activities: any;
   private events: any;
   private randEvent: Event;
+  private salaryTime = 0;
   public timeTillLastEvent = 0;
   constructor(private _service: UnluckyService) { }
 
@@ -58,6 +59,8 @@ export class HomepageComponent implements OnInit {
     },25);
   }
 
+
+
   getActivities() {
       this._service.getActivities()
       .subscribe(result => {
@@ -70,11 +73,43 @@ export class HomepageComponent implements OnInit {
     this.changeProgressBar('.stress-bar', '.progressBottom');
     if(this.stress >= 100) this.stress = 100;
     this.updateDict();
+    this.animationCrossFunc();
+
+    this.addSalary();
     // this.timeTillLastEvent++;
     // if (this.timeTillLastEvent >= 100) {
     //   //this.getEvent();
     //   this.timeTillLastEvent = 0;
     // }
+  }
+  addSalary() {
+    this.salaryTime++;
+    if(this.salaryTime >= 50) {
+      this.money += this.salary;
+      this.salaryTime = 0;
+    }
+  }
+  animationCrossFunc() {
+    this.animationCross++;
+    if( this.stress < 80) {
+      $('.outerCross').css('display','none');
+    }
+    if(this.animationCross > 13 && this.stress >= 80) {
+      if($('.outerCross').hasClass('visible')) {
+        $('.outerCross').removeClass('visible');
+      } else {
+        $('.outerCross').addClass('visible');
+      }
+      this.animationCross = 0;
+    }
+    if(this.animationCross > 8 && this.stress >= 90) {
+      if($('.outerCross').hasClass('visible')) {
+        $('.outerCross').removeClass('visible');
+      } else {
+        $('.outerCross').addClass('visible');
+      }
+      this.animationCross = 0;
+    }
   }
   initBars() {
     $('.stress-bar').width(this.stress + '%');
@@ -97,16 +132,15 @@ export class HomepageComponent implements OnInit {
   }
 
   updateDict() {
-  // private dictionary = {
-  //     "money":this.money,
-  //     "stress":this.stress,
-  //     "salary": this.salary,
-  //     "score":this.score,
-  //     "friends":this.friend,
-  //     "cigarettes":this.cigarettes,
-  //     "alcohol":this.alcohol,
-  //     "drugs":this.drugs
-  //   }
+  this.dictionary['money'] = this.money;
+    this.dictionary['stress'] = this.stress;
+    this.dictionary['salary'] = this.salary;
+    this.dictionary['score'] =  this.score;
+    this.dictionary['friends'] = this.friends;
+    this.dictionary['cigarettes'] =  this.cigarettes;
+    this.dictionary['alcohol'] =  this.alcohol;
+    this.dictionary['drugs'] = this.drugs;
+
   }
 
   getEvents() {
