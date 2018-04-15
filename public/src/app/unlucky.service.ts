@@ -9,12 +9,15 @@ export class UnluckyService {
     return this._http.get('http://webtest220180414052420.azurewebsites.net/api/kappa');
   }
   sendData(data: number) {
-    return this._http.post('http://127.0.0.1:8000/kappa/', data);
+    //return this._http.post('http://127.0.0.1:8000/kappa/', data);
   }
   getRandomEvent() {
-    return this._http.get('https://webtest220180414052420.azurewebsites.net/api/event/random');
+    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/event/random');
   }
-  getActivities() {
-    return this._http.get('http://localhost:8000/eventSendDataObrazki/?format=json');
+  getActivities(k:string) {
+    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/activity/'+k);
+  }
+  getNotRandomEvent(e: number) {
+    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/event/' + e);
   }
 }
