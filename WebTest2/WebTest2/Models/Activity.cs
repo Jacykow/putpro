@@ -13,6 +13,7 @@ namespace WebTest2.Models
         public string ImageUrl2 { get; set; }
         public int Price { get; set; }
         public int Stress { get; set; }
-
+        public int Addiction { get; set; }
+        public int Rehabilitation { get; set; }
     }
 }
