@@ -13,15 +13,25 @@ export class HomepageComponent implements OnInit {
   public send = 45;
   private money = 0;
   private stress = 20;
-  private jobPosition = 0;
+  private salary = 0;
   private score = 0;
+  private avanceChance = 0;
 
   private friends = 10;
   private cigarettes = 0;
   private alcohol = 0;
   private drugs = 0;
 
-
+  private dictionary = {
+    "money":this.money,
+    "stress":this.stress,
+    "salary": this.salary,
+    "score":this.score,
+    "friends":this.friend,
+    "cigarettes":this.cigarettes,
+    "alcohol":this.alcohol,
+    "drugs":this.drugs
+  }
   // private event: Event = {event_title: "dfd", event_description:"dff",event_image:"dsfdf", event_choice_1: "sdsd", event_choice_2: "sdsd"};
   private activities: any;
   private events: any;
@@ -39,6 +49,7 @@ export class HomepageComponent implements OnInit {
     //   .subscribe(result => {
     //     console.log(result);
     //   }, error => {console.log(error)});
+
     this.getActivities();
     this.getEvents();
     this.initBars();
@@ -57,6 +68,8 @@ export class HomepageComponent implements OnInit {
 
   animateApp() {
     this.changeProgressBar('.stress-bar', '.progressBottom');
+    if(this.stress >= 100) this.stress = 100;
+    this.updateDict();
     // this.timeTillLastEvent++;
     // if (this.timeTillLastEvent >= 100) {
     //   //this.getEvent();
@@ -72,9 +85,8 @@ export class HomepageComponent implements OnInit {
   changeProgressBar(name: string, compare: string) {
    // document.getElementsByClassName("progress-bar").style.width = "40%";
     //console.log($('.stress-bar').width(), $('.progressBottom').width());
-    if ($(name).width() < $(compare).width()) {
+    if ($(name).width() <= $(compare).width()) {
        $(name).width(this.stress + '%');
-       console.log($(name).width());
       if (name === '.stress-bar') {
         // console.log("rgb("+$(name).width()+", 0, 0)");
         var red = Math.floor($(name).width()/$('.progressBottom').width()*255);
@@ -84,7 +96,18 @@ export class HomepageComponent implements OnInit {
 
   }
 
-
+  updateDict() {
+  // private dictionary = {
+  //     "money":this.money,
+  //     "stress":this.stress,
+  //     "salary": this.salary,
+  //     "score":this.score,
+  //     "friends":this.friend,
+  //     "cigarettes":this.cigarettes,
+  //     "alcohol":this.alcohol,
+  //     "drugs":this.drugs
+  //   }
+  }
 
   getEvents() {
     this._service.getEvent()
@@ -100,13 +123,19 @@ export class HomepageComponent implements OnInit {
   close($e) {
     $('.event').css('display', 'none');
     if($e===1) {
-      this.stress += this.randEvent.stress1;
+      if(this.stress<=100) {
+        this.stress += this.randEvent.stress1;
+        if(this.stress > 100) this.stress = 100;
+      }
       this.friends += this.randEvent.friends1;
       this.cigarettes += this.randEvent.cigaretes1;
       this.alcohol += this.randEvent.alcochol1;
       this.drugs += this.randEvent.drugs1;
     } else if($e===2) {
-      this.stress += this.randEvent.stress2;
+      if(this.stress<=100) {
+        this.stress += this.randEvent.stress2;
+        if(this.stress > 100) this.stress = 100;
+      }
       this.friends += this.randEvent.friends2;
       this.cigarettes += this.randEvent.cigaretes2;
       this.alcohol += this.randEvent.alcochol2;
@@ -130,6 +159,14 @@ export class HomepageComponent implements OnInit {
       this.drugs += $e.drugs3;
 
     }
+  }
+  onMouseDown($event, $activit) {
+    // console.log($activit);
+    $($event.toElement).css('background-image', 'url(' + $activit.obrazek_image2 + ')');
+  }
+  onMouseUp($event, $activit) {
+    // console.log($activit);
+    $($event.toElement).css('background-image', 'url(' + $activit.obrazek_image + ')');
   }
 
 }

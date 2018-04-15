@@ -39,17 +39,24 @@
     }
   }
 }
+.statusBottomSpan {
+  bottom:86px;
+  border-radius:5px 5px 0 0;
+  left:15px;
+  padding:8px 12px;
+  background-color:rgba(0,0,0,0.5);
+  display:inline-block;
+  position:relative;
+  font-family:"Roboto Slab", Serif;
+  color:#e2e2e2;
+}
 .statusBottomContainer {
   position:absolute;
   bottom:0px;
   width:100%;
   padding:20px 15px;
   background-color:#4b405b;
-  span {
 
-    font-family:"Roboto Slab", Serif;
-    color:#e2e2e2;
-  }
   .progress {
     .progress-bar {
       background-color:rgb(200, 55, 0);
