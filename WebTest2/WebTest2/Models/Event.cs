@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebTest2.Models
+{
+    public class Event
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Text { get; set; }
+        public string ImageUrl { get; set; }
+        public string ChoiceAText { get; set; }
+        public int ChoiceAId { get; set; }
+        public string ChoiceBText { get; set; }
+        public int ChoiceBId { get; set; }
+        public Dictionary<string, int> Values { get; set; }
+    }
+}
