@@ -12,12 +12,12 @@ export class UnluckyService {
     //return this._http.post('http://127.0.0.1:8000/kappa/', data);
   }
   getRandomEvent() {
-    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/event/random');
+    return this._http.get('https://webtest220180414052420.azurewebsites.net/api/event/random');
   }
   getActivities(k:string) {
-    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/activity/'+k);
+    return this._http.get('https://webtest220180414052420.azurewebsites.net/api/activity/'+k);
   }
   getNotRandomEvent(e: number) {
-    return this._http.get('http://webtest220180414052420.azurewebsites.net/api/event/' + e);
+    return this._http.get('https://webtest220180414052420.azurewebsites.net/api/event/' + e);
   }
 }

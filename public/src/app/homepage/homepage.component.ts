@@ -21,21 +21,25 @@ export class HomepageComponent implements OnInit {
   // private cigarettes = 0;
   // private alcohol = 0;
   // private drugs = 0;
-  private names: Array<string>=["money", "stress", "salary", "score", "friends"];
+  private names: Array<string>=["money", "stress", "salary", "score", "friends", "cigarette", "rehabilitation"];
   public dictionary = {
     "money":0,
     "stress":20,
     "salary": 1,
     "score":0,
-    "friends":10
+    "friends":10,
+    "cigarette":0,
+    "rehabilitation":0
   }
   // private event: Event = {event_title: "dfd", event_description:"dff",event_image:"dsfdf", event_choice_1: "sdsd", event_choice_2: "sdsd"};
   public activities: any = [];
   public event: any;
   public randEvent: Event;
+  public mnoznik = 4;
   private salaryTime = 0;
   public visible = 0;
   public timeFromLastEvent = 0;
+  public interval;
   private timeBetweenEvents = 200;
   constructor(private _service: UnluckyService) { }
 
@@ -53,8 +57,9 @@ export class HomepageComponent implements OnInit {
     //this.getActivities();
     // this.getRandomEvent();
     this.initBars();
+    this.getByString("cigarette");
     // this.getRandomEvent();
-    var interval = setInterval(()=>{
+    this.interval = setInterval(()=>{
       this.animateApp();
     },25);
   }
@@ -76,6 +81,9 @@ export class HomepageComponent implements OnInit {
     this.animationCrossFunc();
     this.checkEvent();
     this.addSalary();
+    if(this.dictionary.stress >= 100) {
+      this.getNotRandom(33);
+    }
     // this.timeTillLastEvent++;
     // if (this.timeTillLastEvent >= 100) {
     //   //this.getEvent();
@@ -103,7 +111,7 @@ export class HomepageComponent implements OnInit {
   }
   addSalary() {
     this.salaryTime++;
-    if(this.salaryTime >= 120) {
+    if(this.salaryTime >= 40) {
       this.dictionary.money += this.dictionary.salary;
       this.salaryTime = 0;
     }
@@ -164,7 +172,7 @@ export class HomepageComponent implements OnInit {
     this._service.getNotRandomEvent(n)
       .subscribe(result => {
         this.event = result;
-        console.log(result);
+        //console.log(result);
         $('.event').css('display', 'block');
         this.visible = 1;
       }, error => {console.log(error)});
@@ -177,8 +185,18 @@ export class HomepageComponent implements OnInit {
   close($e,n:number) {
     // this.visible = 0;
     $('.event').css('display', 'none');
+    console.log("ds");
+    console.log($e);
+    if($e.choiceAId === -1) {
+      console.log($e);
+      // this.visible=1;
+      console.log($e.choiceAId);
+      window.location.reload(true);
+      // window.top.location.reload();
+      // this.interval.clearInterval();
+    }
     if(n===1) {
-      if ($e.choiceAId!==0) {
+      if ($e.choiceAId!==0 && $e.choiceAId!==-1) {
         this.event = this.getNotRandom($e.choiceAId);
       }
     } else if(n===2) {
@@ -188,7 +206,7 @@ export class HomepageComponent implements OnInit {
     }
     if ($e.choiceAId === 0) {
 
-      this.getByName($e);
+      this.event = this.getByName($e);
       //console.log(this.dictionary);
       // if ($e.values.money !== undefined)
       //   this.dictionary.money += $e.values.money;
@@ -228,6 +246,7 @@ export class HomepageComponent implements OnInit {
         this.getByString(k);
       }
       // this.dictionary[k] += 1;
+      this.dictionary[k] += $e.values[k];
     }
     // this._service.getActivities()
     //   .subscribe(result => {
@@ -239,17 +258,18 @@ export class HomepageComponent implements OnInit {
   getByString(k:string) {
     this._service.getActivities(k)
       .subscribe(result => {
-
-        this.activities.push(result);
+        // if(result.price!==0) {
+          this.activities.push(result);
+        // }
         // let topush = {} as Activity;
         // topush = result;
-        console.log(this.activities);
+        // console.log(this.activities);
         //this.activities[this.activities.length - 1] = topush;
       }, error => {console.log(error)});
   }
   increaseMoney() {
     this.dictionary.money++;
-    this.dictionary.stress++;
+    this.dictionary.stress += 1*this.mnoznik/2;
     //console.log(this.stress);
   }
   touchActivity($e) {
@@ -261,16 +281,24 @@ export class HomepageComponent implements OnInit {
     //   this.cigarettes += $e.cigaretes3;
     //   this.alcohol += $e.alcochol3;
     //   this.drugs += $e.drugs3;
+    console.log($e);
+    if(this.dictionary.money >= $e.price) {
+      this.dictionary.money -= $e.price;
+      this.dictionary.stress += $e.stress*this.mnoznik;
+      this.dictionary[$e.name] += 1;
+      this.dictionary.rehabilitation += $e.rehabilitation;
+      this.dictionary.score+=$e.addiction;
+    }
 
     }
   // }
   onMouseDown($event, $activit) {
     // console.log($activit);
-    $($event.toElement).css('background-image', 'url(' + $activit.obrazek_image2 + ')');
+    $($event.toElement).css('background-image', 'url(' + $activit.imageUrl2 + ')');
   }
   onMouseUp($event, $activit) {
     // console.log($activit);
-    $($event.toElement).css('background-image', 'url(' + $activit.obrazek_image + ')');
+    $($event.toElement).css('background-image', 'url(' + $activit.imageUrl1 + ')');
   }
 
 }

@@ -23,7 +23,7 @@
     </div>
     <div class="right">
       <div *ngFor="let activit of activities" class="activity">
-        <div class="img" [ngStyle]="{'background-image':'url('+ activit.imageUrl1+')'}" (click)="touchActivity(activit);" (mousedown)="onMouseDown($event,activit)" (mouseup)="onMouseUp($event,activit)">
+        <div class="img" *ngIf="activit.price!==0" [ngStyle]="{'background-image':'url('+ activit.imageUrl1+')'}" (click)="touchActivity(activit);" (mousedown)="onMouseDown($event,activit)" (mouseup)="onMouseUp($event,activit)">
           <!--<div class="img" [ngStyle]="{'background-image':'url(https://i.imgur.com/XAF0OsJ.png)'}">-->
           <span class="price">{{activit.price}}$</span>
         </div>
@@ -57,7 +57,7 @@
     <span class="button" >1.</span>
     <span class="desc">{{event.choiceAText}}</span>
   </div>
-  <div class="option" (click)="close(event, 2);" *ngIf="event.choiceBId!==0">
+  <div class="option" (click)="close(event, 2);" *ngIf="event.choiceBText!==null">
     <span class="button">2.</span>
     <span class="desc">{{event.choiceBText}}</span>
   </div>
