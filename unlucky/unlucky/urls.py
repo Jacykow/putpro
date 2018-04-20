@@ -28,6 +28,7 @@ urlpatterns = [
     path('eventSendData/', views.EventList.as_view()),
     path('eventSendDataObrazki/', views.ObrazkiList.as_view()),
     url(r'^myawesomeview/$', myawesomeview),
-    url(r'^hello/$', hello),
-    url('kappa/', views.SomeClass),
+    url('hello', hello),
+    url('kappa', views.SomeClass),
+    url('req',views.req)
 ]

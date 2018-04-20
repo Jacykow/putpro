@@ -25,7 +25,8 @@ SECRET_KEY = 'x-0vd($*wll+hyl%#+xvrqy^q7=db4gk-f#!&mg@5n%2w0jlmm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'unlucky.urls'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+APPEND_SLASH = False
 
 TEMPLATES = [
     {
